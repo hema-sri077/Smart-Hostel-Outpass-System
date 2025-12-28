@@ -1,26 +1,21 @@
-function generateOutpass() {
-    alert("Outpass request started!");
-}
-
 function submitOutpass() {
-    let name = document.getElementById("name").value;
-    let room = document.getElementById("room").value;
-    let reason = document.getElementById("reason").value;
-    let dateGoing = document.getElementById("dateGoing").value;
-    let dateReturn = document.getElementById("dateReturn").value;
+    const name = document.getElementById('name').value;
+    const room = document.getElementById('room').value;
+    const reason = document.getElementById('reason').value;
+    const dateGoing = document.getElementById('dateGoing').value;
+    const dateReturn = document.getElementById('dateReturn').value;
 
-    if (name === "" || room === "" || reason === "" || dateGoing === "" || dateReturn === "") {
-        alert("Please fill all fields");
-    } else {
-        alert(
-            "Outpass Submitted!\n\n" +
-            "Name: " + name + "\n" +
-            "Room: " + room + "\n" +
-            "Reason: " + reason + "\n" +
-            "From: " + dateGoing + "\n" +
-            "To: " + dateReturn
-        );
-
-        document.getElementById("outpassForm").reset();
+    if(!name || !room || !reason || !dateGoing || !dateReturn){
+        alert("Please fill all details");
+        return;
     }
+
+    fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, room, reason, dateGoing, dateReturn })
+    })
+    .then(res => res.json())
+    .then(data => alert(data.message))
+    .catch(err => console.log(err));
 }
