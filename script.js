@@ -1,6 +1,7 @@
 function generateOutpass() {
-    alert("Outpass request submitted for verification!");
+    alert("Outpass request started!");
 }
+
 function submitOutpass() {
     let name = document.getElementById("name").value;
     let room = document.getElementById("room").value;
@@ -8,10 +9,18 @@ function submitOutpass() {
     let dateGoing = document.getElementById("dateGoing").value;
     let dateReturn = document.getElementById("dateReturn").value;
 
-    if(name === "" || room === "" || reason === "" || dateGoing === "" || dateReturn === "") {
-        alert("Please fill all the fields!");
+    if (name === "" || room === "" || reason === "" || dateGoing === "" || dateReturn === "") {
+        alert("Please fill all fields");
     } else {
-        alert("Outpass submitted for " + name + " from " + dateGoing + " to " + dateReturn);
-        document.getElementById("outpassForm").reset(); // form reset
+        alert(
+            "Outpass Submitted!\n\n" +
+            "Name: " + name + "\n" +
+            "Room: " + room + "\n" +
+            "Reason: " + reason + "\n" +
+            "From: " + dateGoing + "\n" +
+            "To: " + dateReturn
+        );
+
+        document.getElementById("outpassForm").reset();
     }
 }
