@@ -4,32 +4,33 @@
     <title>Smart Hostel Outpass System</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <h1>Smart Hostel Outpass System</h1>
-    <p>Digital Outpass Management Application</p>
 
     <button onclick="generateOutpass()">Generate Outpass</button>
+
     <h2>Outpass Form</h2>
-<form id="outpassForm">
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br><br>
 
-    <label for="room">Room No:</label><br>
-    <input type="text" id="room" name="room"><br><br>
+    <form id="outpassForm">
+        <input type="text" id="name" placeholder="Student Name"><br><br>
 
-    <label for="reason">Reason:</label><br>
-    <input type="text" id="reason" name="reason"><br><br>
+        <input type="text" id="room" placeholder="Room Number"><br><br>
 
-    <label for="dateGoing">Date of Leaving:</label><br>
-    <input type="date" id="dateGoing" name="dateGoing"><br><br>
+        <input type="text" id="reason" placeholder="Reason"><br><br>
 
-    <label for="dateReturn">Date of Returning:</label><br>
-    <input type="date" id="dateReturn" name="dateReturn"><br><br>
+        <label>Date of Leaving</label><br>
+        <input type="date" id="dateGoing"><br><br>
 
-    <button type="button" onclick="submitOutpass()">Submit Outpass</button>
-</form>
+        <label>Date of Returning</label><br>
+        <input type="date" id="dateReturn"><br><br>
+
+        <button type="button" onclick="submitOutpass()">Submit Outpass</button>
+    </form>
 
     <script src="script.js"></script>
+
 </body>
 </html>
+   
